@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+{% block title %}Dashboard{% endblock %}
+{% block content %}
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+    <div class="card p-6">
+        <div class="flex items-center mb-4">
+            <i class="fas fa-user-injured text-2xl text-blue-600 mr-3"></i>
+            <h3 class="text-xl font-semibold">Patients</h3>
+        </div>
+        <p class="text-gray-600 mb-4 text-center">Manage patient information including personal details and insurance.</p>
+        <a href="{{ url_for('list_patients') }}" class="manage-btn block w-full text-center py-2 bg-gray-500 text-white rounded">Manage Patients</a>
+    </div>
+    
+    <div class="card p-6">
+        <div class="flex items-center mb-4">
+            <i class="fas fa-user-md text-2xl text-green-600 mr-3"></i>
+            <h3 class="text-xl font-semibold">Doctors</h3>
+        </div>
+        <p class="text-gray-600 mb-4 text-center">Manage doctor profiles, specialties, and prescriptions.</p>
+        <a href="{{ url_for('list_doctors') }}" class="manage-btn block w-full text-center py-2 bg-gray-500 text-white rounded">Manage Doctors</a>
+    </div>
+    
+    <div class="card p-6">
+        <div class="flex items-center mb-4">
+            <i class="fas fa-pills text-2xl text-red-600 mr-3"></i>
+            <h3 class="text-xl font-semibold">Drugs</h3>
+        </div>
+        <p class="text-gray-600 mb-4 text-center">Maintain drug information, pricing, and inventory.</p>
+        <a href="{{ url_for('list_drugs') }}" class="manage-btn block w-full text-center py-2 bg-gray-500 text-white rounded">Manage Drugs</a>
+    </div>
+    
+    <div class="card p-6">
+        <div class="flex items-center mb-4">
+            <i class="fas fa-industry text-2xl text-purple-600 mr-3"></i>
+            <h3 class="text-xl font-semibold">Manufacturers</h3>
+        </div>
+        <p class="text-gray-600 mb-4 text-center">Track drug manufacturers and their contracts with pharmacies.</p>
+        <a href="{{ url_for('list_manufacturers') }}" class="manage-btn block w-full text-center py-2 bg-gray-500 text-white rounded">Manage Manufacturers</a>
+    </div>
+    
+    <div class="card p-6">
+        <div class="flex items-center mb-4">
+            <i class="fas fa-user-tie text-2xl text-yellow-600 mr-3"></i>
+            <h3 class="text-xl font-semibold">Employees</h3>
+        </div>
+        <p class="text-gray-600 mb-4 text-center">Manage pharmacy employees and their work schedules.</p>
+        <a href="{{ url_for('list_employees') }}" class="manage-btn block w-full text-center py-2 bg-gray-500 text-white rounded">Manage Employees</a>
+    </div>
+    
+    <div class="card p-6">
+        <div class="flex items-center mb-4">
+            <i class="fas fa-clinic-medical text-2xl text-indigo-600 mr-3"></i>
+            <h3 class="text-xl font-semibold">Pharmacies</h3>
+        </div>
+        <p class="text-gray-600 mb-4 text-center">Maintain pharmacy locations and related information.</p>
+        <a href="{{ url_for('list_pharmacies') }}" class="manage-btn block w-full text-center py-2 bg-gray-500 text-white rounded">Manage Pharmacies</a>
+    </div>
+</div>
+
+<div class="card p-6 mb-8">
+    <p class="mb-4">This system is based on the following entity relationships:</p>
+    <ul class="list-disc pl-5 mb-4 space-y-2">
+        <li><strong>Patient</strong> - has attributes: name, PID, sex, address, contact_no, Insurance_Info</li>
+        <li><strong>Doctor</strong> - has attributes: D_name, specialty, Phys_ID</li>
+        <li><strong>Drug</strong> - has attributes: Trade_Name, Price, Quantity</li>
+        <li><strong>Drug_Manufacturer</strong> - has attributes: Name, Company_ID, Address</li>
+        <li><strong>Employee</strong> - has attributes: Name, Employee_ID, Shift_Start, Shift_End</li>
+        <li><strong>Pharmacy</strong> - has attributes: Pharm_ID, name, Address, Fax</li>
+    </ul>
+    <p class="mb-4">Key relationships include:</p>
+    <ul class="list-disc pl-5 space-y-2">
+        <li>Patients are <strong>Seen By</strong> Doctors</li>
+        <li>Doctors <strong>Prescribe</strong> Drugs</li>
+        <li>Drug Manufacturers <strong>Make</strong> Drugs</li>
+        <li>Employees <strong>Sell</strong> Drugs</li>
+        <li>Employees <strong>Work</strong> at Pharmacies</li>
+        <li>Drug Manufacturers have <strong>Contracts</strong> with Pharmacies</li>
+    </ul>
+</div>
+
+
+{% endblock %}

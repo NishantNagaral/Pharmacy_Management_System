@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pharmacy Information System - {% block title %}{% endblock %}</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body class="bg-gray-100">
+    <div class="container mx-auto px-4 py-8">
+        <header class="mb-8">
+            <h1 class="text-4xl font-bold text-center text-gray-800 mb-4">Pharmacy Information System</h1>
+            
+            <div class="flex justify-center mb-6">
+                <nav class="bg-gray-200 p-2 rounded-lg flex justify-center space-x-4 w-full max-w-4xl">
+                    <a href="{{ url_for('index') }}" class="nav-tab {% if request.path == '/' %}active{% endif %}">Dashboard</a>
+                    <a href="{{ url_for('list_patients') }}" class="nav-tab {% if request.path.startswith('/patients') %}active{% endif %}">Patients</a>
+                    <a href="{{ url_for('list_doctors') }}" class="nav-tab {% if request.path.startswith('/doctors') %}active{% endif %}">Doctors</a>
+                    <a href="{{ url_for('list_drugs') }}" class="nav-tab {% if request.path.startswith('/drugs') %}active{% endif %}">Drugs</a>
+                    <a href="{{ url_for('list_manufacturers') }}" class="nav-tab {% if request.path.startswith('/manufacturers') %}active{% endif %}">Manufacturers</a>
+                    <a href="{{ url_for('list_employees') }}" class="nav-tab {% if request.path.startswith('/employees') %}active{% endif %}">Employees</a>
+                    <a href="{{ url_for('list_pharmacies') }}" class="nav-tab {% if request.path.startswith('/pharmacies') %}active{% endif %}">Pharmacies</a>
+                    <a href="{{ url_for('list_contracts') }}" class="nav-tab {% if request.path.startswith('/contracts') %}active{% endif %}">Contracts</a>
+                </nav>
+            </div>
+        </header>
+
+        <main>
+            {% block content %}{% endblock %}
+        </main>
+    </div>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9344aa2badb853b4',t:'MTc0NTMyMDEyMi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
+</body>
+</html>

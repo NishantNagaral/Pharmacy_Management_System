@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% block title %}Contracts{% endblock %}
+{% block content %}
+<h2 class="text-2xl font-bold mb-6">Contract Management</h2>
+
+<div class="card p-6 mb-8">
+    <h3 class="text-xl font-semibold mb-4">Add/Edit Contract</h3>
+    <form id="contractForm" class="space-y-4">
+        <input type="hidden" id="contractEditId">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+                <label class="block text-gray-700 mb-2" for="contractManufacturer">Manufacturer</label>
+                <select id="contractManufacturer" class="form-control" required>
+                    <option value="">Select Manufacturer</option>
+                    <!-- Options populated by JavaScript -->
+                </select>
+            </div>
+            <div>
+                <label class="block text-gray-700 mb-2" for="contractPharmacy">Pharmacy</label>
+                <select id="contractPharmacy" class="form-control" required>
+                    <option value="">Select Pharmacy</option>
+                    <!-- Options populated by JavaScript -->
+                </select>
+            </div>
+            <div>
+                <label class="block text-gray-700 mb-2" for="startDate">Start Date</label>
+                <input type="date" id="startDate" class="form-control" required>
+            </div>
+            <div>
+                <label class="block text-gray-700 mb-2" for="endDate">End Date</label>
+                <input type="date" id="endDate" class="form-control" required>
+            </div>
+        </div>
+        <button type="submit" class="btn add-btn">Save Contract</button>
+    </form>
+</div>
+
+<div class="card p-6">
+    <h3 class="text-xl font-semibold mb-4">Contract Records</h3>
+    <div class="overflow-x-auto">
+        <table class="min-w-full">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Manufacturer</th>
+                    <th>Pharmacy</th>
+                    <th>Start Date</th>
+                    <th>End Date</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="contractTableBody">
+                <!-- Table rows will be populated by JavaScript -->
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

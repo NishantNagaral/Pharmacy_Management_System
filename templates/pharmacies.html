@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block title %}Pharmacies{% endblock %}
+{% block content %}
+<h2 class="text-2xl font-bold mb-6">Pharmacy Management</h2>
+
+<div class="card p-6 mb-8">
+    <h3 class="text-xl font-semibold mb-4">Add/Edit Pharmacy</h3>
+    <form id="pharmacyForm" class="space-y-4">
+        <input type="hidden" id="pharmacyEditId">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+                <label class="block text-gray-700 mb-2" for="pharmacyId">Pharmacy ID</label>
+                <input type="text" id="pharmacyId" class="form-control" required>
+            </div>
+            <div>
+                <label class="block text-gray-700 mb-2" for="pharmacyName">Pharmacy Name</label>
+                <input type="text" id="pharmacyName" class="form-control" required>
+            </div>
+            <div>
+                <label class="block text-gray-700 mb-2" for="pharmacyFax">Fax Number</label>
+                <input type="text" id="pharmacyFax" class="form-control" required>
+            </div>
+            <div class="md:col-span-2">
+                <label class="block text-gray-700 mb-2" for="pharmacyAddress">Address</label>
+                <textarea id="pharmacyAddress" class="form-control" rows="2" required></textarea>
+            </div>
+        </div>
+        <button type="submit" class="btn add-btn">Save Pharmacy</button>
+    </form>
+</div>
+
+<div class="card p-6">
+    <h3 class="text-xl font-semibold mb-4">Pharmacy Records</h3>
+    <div class="overflow-x-auto">
+        <table class="min-w-full">
+            <thead>
+                <tr>
+                    <th>Pharmacy ID</th>
+                    <th>Name</th>
+                    <th>Address</th>
+                    <th>Fax</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="pharmacyTableBody">
+                <!-- Table rows will be populated by JavaScript -->
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}
