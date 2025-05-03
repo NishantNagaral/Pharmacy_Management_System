@@ -13,9 +13,6 @@ All entities and their relationships are structured according to the provided ER
 ---
 
 ## 📊 ER Diagram
-
-> *(Insert the ER diagram image here)*  
-> Example:  
 > ![ER Diagram](er.jpg)
 
 ---
