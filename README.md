@@ -16,7 +16,7 @@ All entities and their relationships are structured according to the provided ER
 
 > *(Insert the ER diagram image here)*  
 > Example:  
-> `![ER Diagram](static/images/er-diagram.png)`
+> `![ER Diagram](er.png)`
 
 ---
 
