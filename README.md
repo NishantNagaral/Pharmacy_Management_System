@@ -34,23 +34,26 @@ Follow these steps to set up the project locally:
 
 ### 1. Clone the Repository
 
-bash
+```bash
 git clone https://github.com/yourusername/pharmacy-management.git
+```
+```
 cd pharmacy-management
+```
 
 ### 2. Install Required Packages
 
-bash
+```bash
 pip install -r requirements.txt
-
+```
 ### 3.Initialize the Database
 
-bash
+```bash
 python app.py
-
+```
 ### 4. Run the Application
 
-bash
+```bash
 python app.py
-
-the application will be available at:hhtp://localhost:5000
+```
+the application will be available at:http://localhost:5000
